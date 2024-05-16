@@ -1,0 +1,17 @@
+
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:latest
+    restart: always
+    container_name: demo_db
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
+      MYSQL_USER: ${SPRING_DATASOURCE_USERNAME}
+      MYSQL_DATABASE: ${SPRING_DATASOURCE_DB}
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./mysql:/var/lib/mysql
